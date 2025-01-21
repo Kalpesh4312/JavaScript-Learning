@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create edit remove (DOM)</title>
+</head>
+<body>
+    <ul class="dish">
+        <li>curry</li>
+        <li>khichadi</li>
+    </ul>
+</body>
+<script>
+    // add item
+    function dishadd(dish) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(dish))
+        document.querySelector('.dish').appendChild(li)
+    }
+    dishadd('shev bhaji')
+    dishadd('poha')
+
+    // edit item
+    const itemchange = document.querySelector('.dish').querySelector("li:nth-child(1)")
+    const newitem = document.createElement('li')
+    newitem.appendChild(document.createTextNode("kadi"))
+    itemchange.replaceWith(newitem)
+
+    // remove item 
+    const itemplace = document.querySelector('.dish').querySelector('li:last-child')
+    itemplace.remove()
+</script>
+</html>

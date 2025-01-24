@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in JS</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <ul class="images">
+        <li><img width="200px" src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt="" id="sarada"></li>
+        <li><img width="200px" src="https://www.shutterstock.com/image-photo/calm-weather-on-sea-ocean-600nw-2212935531.jpg" alt="" id="sea"></li>
+        <li><img width="200px" src="https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630" alt="" id="tree"></li>
+        <li><img width="200px" src="https://pixlr.com/images/generator/how-to-generate.webp" alt="" id="camera"></li>
+        <li><a href="http://google.com">Google</a></li>
+    </ul>    
+</body>
+<script>
+    // document.querySelector('#sarada').addEventListener('click',function () {
+    //     alert('sarada clicked')
+    // })
+
+
+//*************** Important Topics to learn ******************
+
+    // time, timestamp,defaultPrevented
+    // target , toElement ,srcElement, currentTarget
+    // clientX,clientY,screenX,screenY
+    // altkey ,ctrlKey
+
+    //meaning of bubble (true & false)
+    // document.querySelector('.images').addEventListener('click',function (e) {
+    //     console.log('list clicked');
+        
+    // },true)
+
+    // document.querySelector('#sarada').addEventListener('click',function (e) {
+    //     console.log('bubble clicked');
+            // e.stopPropogation()
+    // },true)
+
+    
+    // document.querySelector('#sarada').addEventListener('click',function (e) {
+    //     e.preventDefault()
+    //     console.log(e.target.parentNode);
+        
+    // })
+
+    document.querySelector('.images').addEventListener('click',function (e) {
+        if(e.target.tagName == 'IMG'){
+            let atom = e.target.parentNode
+            atom.remove()
+        }
+        
+    })
+    
+</script>
+</html>

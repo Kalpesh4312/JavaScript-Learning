@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeout Learning</title>
+</head>
+<body>
+    <div class="container">
+        <div class="name">Kalpesh Kishor Patil</div>
+        <button type="button" id="Start">Start</button>
+        <button type="button" id="stop">stop</button>
+    </div>
+</body>
+<script>
+    let timeout;
+    function changetext(str) {
+        document.querySelector('.name').innerHTML = `${str} kalpesh Patil`
+    }
+    document.querySelector('#Start').addEventListener('click',function () {
+        timeout = setTimeout(changetext,2000,"hello")
+
+    })
+
+    document.querySelector('#stop').addEventListener('click',function () {
+        clearTimeout(timeout)
+    })
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api request xmlhttprequest</title>
+</head>
+<body>
+    <div class="container">
+        <div class="info">
+            <a href="">For profile Click Here</a>
+            <div class="follower"></div>
+        </div>
+        <div><button type="button" id="getinfo">Get Info</button></div>
+    </div>
+</body>
+<script>
+    
+    // xhr.onreadystatechange = function () {
+    //     console.log(xhr.readyState);
+    //     if (xhr.readyState === 4) {
+    //             const response = JSON.parse(this.responseText)
+    //             console.log(response);
+                
+    //     }
+    // }
+    
+    let response;
+    const getinfo = document.querySelector('#getinfo')
+    getinfo.addEventListener('click',function (e) {
+        document.querySelector('.follower').innerHTML = `Followers : ${response.followers}`
+        document.querySelector('.profile').href.innerHTML = response.avatar_url
+
+        const requesturl = 'https://api.github.com/users/hiteshchaudhary'
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET',requesturl)
+
+        xhr.onreadystatechange = function () {
+            console.log(xhr.readyState);
+            if (xhr.readyState === 4) {
+                    response = JSON.parse(this.responseText)
+                    console.log(response);
+                    
+            }
+        }
+    
+    })
+
+    xhr.send()
+
+</script>
+</html>
